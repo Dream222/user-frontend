@@ -1,0 +1,44 @@
+.available-courts-row {
+  @include gt-mobile {
+    height: 5.25rem;
+  }
+
+  .time {
+    z-index: 2;
+  }
+
+  .time-slot {
+    @extend .mrm;
+    @extend .t3;
+    @extend .flex-row;
+    @extend .flex-vc;
+    @extend .color-grey-900;
+
+    font-family: $font-geom;
+    position: relative;
+    z-index: 2;
+
+    @include gt-mobile {
+      background-color: map_get($color-map, 'pale-turquoise');
+      color: map_get($color-map, 'white');
+      width: 5.5rem;
+
+      &:after {
+        content: $icon-hex;
+        color: map_get($color-map, 'pale-turquoise');
+        font-family: playven-icons, serif;
+        font-size: 5.54rem;
+        position: absolute;
+        z-index: 1;
+        transform: rotate(30deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 2rem;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

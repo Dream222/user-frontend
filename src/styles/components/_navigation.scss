@@ -1,0 +1,157 @@
+#navigation {
+  @extend .color-bg-turquoise;
+  min-height: 4.375rem;
+
+  .navigation-logo {
+    @extend .mht;
+
+    background-image: url('../../../assets/images/logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    height: 100%;
+    width: 5.875rem;
+    min-height: 4.375rem;
+
+    @include mobile {
+      width: 7.5rem;
+    }
+  }
+}
+
+#navigation-toggle {
+  @extend .t2;
+  @extend .pas;
+  @extend .color-white;
+  @extend .hide-gt-mobile;
+
+  position: absolute;
+  right: 0;
+}
+
+#navigation-menu {
+  @extend .flex-col-mobile;
+  @extend .flex-row;
+  @extend .flex-wrap;
+  @extend .flex-vc;
+  min-height: 4.375rem;
+  max-width: 72rem;
+  margin: 0 auto;
+
+  .navigation-button {
+    border-radius: 2rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+    text-transform: none;
+
+    span {
+      margin: 0;
+    }
+  }
+
+  .navigation-link {
+    @extend .color-white;
+    @extend .flex-row;
+    @extend .flex-vc;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    &:hover {
+      @extend .color-highlight-white;
+    }
+    @include lt-desktop() {
+      margin-left: 1rem;
+    }
+    a {
+      @extend .flex-row;
+      @extend .flex-vc;
+    }
+
+    i,
+    img {
+      @extend .color-white;
+      @extend .t4;
+      @extend .mlt;
+      width: 1.8rem;
+      margin-right: 1.2rem;
+    }
+
+    span {
+      @extend .mrs;
+      display: block;
+    }
+  }
+}
+
+#navigation-mobile-menu {
+  @extend .pbs;
+  .mobile-menu-wrapper, ul {
+    @extend .flex-col;
+    @extend .flex-vc;
+    @extend .pts;
+  }
+
+  .navigation-link {
+    @extend .pvt;
+    i,
+    img {
+      @extend .color-white;
+      @extend .mlt;
+      width: 2.2rem;
+      margin-right: 1.2rem;
+    }
+  }
+
+  .navigation-link a {
+    @extend .flex-row;
+    @extend .flex-vc;
+  }
+  .navigation-link,
+  .navigation-logo {
+    @extend .flex-row;
+    @extend .flex-vc;
+    @extend .color-white;
+    @extend .pat;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .navigation-logo {
+    height: 2rem;
+  }
+}
+
+.navigation-transparent {
+  #navigation-toggle {
+    @extend .color-white;
+  }
+
+  #navigation-menu {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+
+    .navigation-link {
+      border-color: transparent;
+
+      a {
+        @extend .color-white;
+
+        &:hover {
+          @extend .color-highlight-white;
+        }
+      }
+    }
+  }
+}
+
+.navigation-right-links {
+  margin-left: auto;
+  font-size: .75rem;
+  > div {
+    @extend .flex-row;
+    @extend .flex-hc;
+  }
+}

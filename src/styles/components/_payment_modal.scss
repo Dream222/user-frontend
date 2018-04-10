@@ -1,0 +1,322 @@
+.payment-modal {
+  width: auto;
+  margin: 0;
+  height: 100%;
+  .pay-button {
+    padding: 0;
+    height: 2.563rem;
+    width: 11rem;
+    border-radius: 0 .3rem .3rem 0;
+    font-family: $font-geob;
+    @include mobile() {
+      border-radius: .3rem;
+    }
+    &.big-button {
+      @extend .phs;
+      border-radius: .3rem;
+      width: auto;
+    }
+    &:disabled {
+      @extend .color-bg-grey-600;
+      cursor: not-allowed;
+    }
+  }
+
+  .skip_button {
+    font-size: .7rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .totalPriceTitle {
+    @include mobile() {
+      font-size: 1.6rem;
+    }
+  }
+
+  .totalPrice {
+    position: relative;
+    @include mobile() {
+      font-size: 1.6rem;
+    }
+    .currency {
+      position: absolute;
+      top: -0.6rem;
+      left: -1.1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    border: 2px solid map_get($color-map, 'white');
+    border-radius: 50%;
+    padding: .5rem;
+    top: 1rem;
+    left: -3.5rem;
+    z-index: 2;
+    cursor: pointer;
+    transform: translate3d(0,0,0);
+    @include mobile() {
+      color: map_get($color-map, 'turquoise');
+      border-color: map_get($color-map, 'turquoise');
+      left: auto;
+      right: 1rem;
+      z-index: 4;
+    }
+    @include tablet() {
+      color: map_get($color-map, 'turquoise');
+      border-color: map_get($color-map, 'turquoise');
+      left: auto;
+      right: 1rem;
+      z-index: 4;
+    }
+  }
+
+  .modal-body {
+    height: 100%;
+    position: relative;
+    z-index: 3;
+  }
+
+  .modal-content {
+    width: 46.875rem;
+  }
+
+  .payment-modal__modal-block {
+    min-height: 100vh;
+    .modal-block__main-container {
+      flex-grow: 1;
+    }
+    .modal-block__bottom-container {
+      flex-grow: 0;
+    }
+  }
+
+  .payment-modal__overlay {
+    position: fixed;
+    z-index: 1;
+    width: 200%;
+    height: 1000%;
+    top: 0;
+    left: -50%;
+    opacity: .8;
+  }
+
+  .payment-modal__spinner {
+    height: 2.5rem;
+    width: 100%;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+  }
+
+  .summary-item {
+    .summary-item__holder_info {
+      border-radius: .3rem;
+      width: 48%;
+      position: relative;
+      @include mobile() {
+        width: auto;
+      }
+      .summary-item__remove {
+        position: absolute;
+        top: .2rem;
+        right: .2rem;
+        font-size: .4rem;
+      }
+    }
+
+    .summary-item__price {
+      margin-left: auto;
+      position: relative;
+      .currency {
+        position: absolute;
+        top: -.29rem;
+        left: -.7rem;
+        font-size: .7rem;
+      }
+    }
+
+    .summary-item__select {
+      width: 48%;
+      margin-left: auto;
+      @include mobile() {
+        width: auto;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .summary-items-wrapper {
+    max-height: 50vh;
+  }
+}
+
+.scrollarea {
+  .scrollbar-container {
+    opacity: 1!important;
+    .scrollbar {
+      background: map_get($color-map, 'turquoise')!important;
+      position: relative;
+      z-index: 2;
+    }
+    &:hover {
+      background: none!important;
+      opacity: 1!important;
+    }
+    &::before {
+      content: '';
+      background: map_get($color-map, 'grey-300');
+      position: absolute;
+      z-index: 1;
+      width: 2px;
+      height: 100%;
+      top: 0;
+      left: 4px;
+    }
+  }
+}
+
+.venue-item {
+  .venue-item__content {
+    display: none;
+  }
+  &.open {
+    .venue-item__content {
+      display: block;
+    }
+    .venue-item__details {
+      i {
+        transform: rotate(0);
+      }
+    }
+  }
+}
+
+.venue-item__details {
+  margin-left: auto;
+  @include mobile() {
+    position: absolute;
+    right: 1.5rem;
+    top: .5rem;
+  }
+  button {
+    position: relative;
+    padding: 0 1rem 0 0;
+    &:hover {
+      text-decoration: underline;
+    }
+    i {
+      position: absolute;
+      right: 0;
+      top: .5rem;
+      font-size: .4rem;
+      transition: .2s;
+      transform: rotate(-180deg);
+    }
+    &.active {
+      i {
+        transform: rotate(0);
+      }
+    }
+  }
+}
+
+.court-name__photo-wrap {
+  > div {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: map_get($color-map, 'turquoise') 50% 50% no-repeat;
+    background-size: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 8px 24px rgba(46,47,48,0.15);
+  }
+}
+
+.cardDialog {
+  .Select-control,
+  .addCardPlaceholder {
+    @extend .flex-row;
+    @extend .flex-vc;
+    @extend .color-bd-grey-10;
+    @extend .color-grey;
+    @extend .pht;
+    text-transform: uppercase;
+    border-right: 0;
+    border-radius: .3rem 0 0 .3rem;
+    font-size: 1rem;
+    height: 2.563rem;
+    @include mobile() {
+      border-radius: .3rem;
+      border-right: 1px solid map_get($color-map, 'grey-10');
+    }
+  }
+  .addCardPlaceholder__text {
+    cursor: default;
+    @include mobile() {
+      font-size: .6rem;
+    }
+  }
+  .add-card {
+    border-radius: .3rem;
+    border: none;
+    padding: .3rem .55rem;
+    transition: .2s;
+    margin-left: auto;
+    &:hover {
+      @extend .color-bg-light-azure;
+    }
+  }
+  .card_block {
+    font-size: .7rem;
+    .card_block__right {
+      margin-left: auto;
+    }
+    .card_block__use_card {
+      text-decoration: underline;
+    }
+  }
+}
+
+.gamePassDialog {
+  .SelectPlayven {
+    &.has-value {
+      .Select-arrow-zone {
+        display: none;
+      }
+    }
+    .Select-menu-outer {
+      width: 17rem;
+      @include mobile() {
+        width: 100%;
+      }
+    }
+    .Select-control {
+      @extend .flex-row;
+      @extend .flex-vc;
+    }
+    .Select-multi-value-wrapper {
+      @extend .flex-row;
+      @extend .flex-vc;
+      @extend .pht;
+      height: 2.5rem;
+      text-transform: uppercase;
+    }
+    .Select-placeholder {
+      font-size: .88rem;
+      text-transform: uppercase;
+    }
+  }
+  .gamePass_block {
+    .gamePass_block__action {
+      font-size: .7rem;
+      text-decoration: underline;
+      margin-left: auto;
+      &:hover {
+        @extend .color-bg-light-azure;
+      }
+    }
+  }
+}
